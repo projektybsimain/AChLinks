@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="AChLinks" Height="350" Width="525" MaxHeight="450" MaxWidth="650" MinHeight="450" MinWidth="650">
     <Grid>
-        <DockPanel HorizontalAlignment="Left" Height="60" LastChildFill="False" VerticalAlignment="Top" Width="642">
-            <DockPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </DockPanel.Background>
-            <TextBox x:Name="textBox" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" HorizontalScrollBarVisibility="Disabled" BorderBrush="White" Margin="120,15,0,0" Foreground="Black" FontSize="16"/>
+        <DockPanel HorizontalAlignment="Left" Height="60" LastChildFill="False" VerticalAlignment="Top" Width="542" Margin="100,0,0,0" Background="#FF6A6F7C">
+            <TextBox x:Name="textBox" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" HorizontalScrollBarVisibility="Disabled" BorderBrush="White" Margin="50,15,0,0" Foreground="Black" FontSize="16"/>
+            <Button x:Name="button" Content="Search" Height="30" VerticalAlignment="Top" Width="68" Margin="50,15,0,0" Padding="1" Foreground="White" Background="#FF9397CD"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="0,60,0,0" VerticalAlignment="Top" Width="100" Background="#FF1B1919">
+        <DockPanel HorizontalAlignment="Left" Height="419" LastChildFill="False" VerticalAlignment="Top" Width="100" Background="#FF505061">
             <DockPanel.BindingGroup>
                 <BindingGroup/>
             </DockPanel.BindingGroup>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="100,60,0,0" VerticalAlignment="Top" Width="542" Background="#FF958A8A"/>
+        <DockPanel HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="100,60,0,0" VerticalAlignment="Top" Width="542" Background="White"/>
+        <DockPanel Height="60" LastChildFill="False" VerticalAlignment="Top" Margin="5,10,547,0">
+            <DockPanel.Background>
+                <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
+            </DockPanel.Background>
+        </DockPanel>
 
     </Grid>
 </Window>
