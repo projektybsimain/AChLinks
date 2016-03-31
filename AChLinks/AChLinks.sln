@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AChLinks", "AChLinks\AChLinks.csproj", "{FE7D3C27-3522-4C08-8C43-723980FEB996}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHLinks", "AChLinks\AHLinks.csproj", "{FE7D3C27-3522-4C08-8C43-723980FEB996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,22 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AChLinks"
         mc:Ignorable="d"
-        Title="AChLinks" Height="350" Width="525" MaxHeight="450" MaxWidth="650" MinHeight="450" MinWidth="650">
+        Title="AHLinks" Height="350" Width="525" MaxHeight="450" MaxWidth="650" MinHeight="450" MinWidth="650">
     <Grid>
         <DockPanel HorizontalAlignment="Left" Height="60" LastChildFill="False" VerticalAlignment="Top" Width="542" Margin="100,0,0,0" Background="#FF6A6F7C">
-            <TextBox x:Name="textBox" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" HorizontalScrollBarVisibility="Disabled" BorderBrush="White" Margin="50,15,0,0" Foreground="Black" FontSize="16"/>
-            <Button x:Name="button" Content="Search" Height="30" VerticalAlignment="Top" Width="68" Margin="50,15,0,0" Padding="1" Foreground="White" Background="#FF9397CD"/>
+            <ComboBox x:Name="comboBox" Height="30" VerticalAlignment="Top" Width="300" Margin="50,15,0,0" SelectionChanged="comboBox_SelectionChanged"/>
+            <Button x:Name="button" Content="Search" Height="30" VerticalAlignment="Top" Width="68" Margin="50,15,0,0" Padding="1" Foreground="White" Background="#FF9397CD" Click="button_Click"/>
         </DockPanel>
         <DockPanel HorizontalAlignment="Left" Height="419" LastChildFill="False" VerticalAlignment="Top" Width="100" Background="#FF505061">
             <DockPanel.BindingGroup>
                 <BindingGroup/>
             </DockPanel.BindingGroup>
+            <Button x:Name="button1" Content="Home" Height="25" VerticalAlignment="Top" Width="70" Margin="15,120,0,0" Padding="1" BorderBrush="#FF707070" Background="#FF505061" Foreground="White" Click="button1_Click" FontSize="14"/>
+            <Button x:Name="button2" Content="Outgoing &#xD;&#xA;Links" Height="40" VerticalAlignment="Top" Width="70" Margin="-71,160,14,0" DockPanel.Dock="Top" Background="#FF505061" Foreground="White" Click="button2_Click" FontSize="14"/>
+            <Button x:Name="button3" Content="Incoming &#xD;&#xA;Links&#xD;&#xA;" Height="40" VerticalAlignment="Top" Width="70" Margin="-70,15,0,0" FontSize="14" Background="#FF505061" Foreground="White" Grid.IsSharedSizeScope="True" Click="button3_Click"/>
+            <Button x:Name="button4" Content="Export" Height="25" VerticalAlignment="Top" Width="70" Margin="-70,69,0,0" Foreground="White" Grid.IsSharedSizeScope="True" FontSize="14" Background="#FF505061"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="100,60,0,0" VerticalAlignment="Top" Width="542" Background="White"/>
-        <DockPanel Height="60" LastChildFill="False" VerticalAlignment="Top" Margin="5,10,547,0">
+        <DockPanel x:Name="start" HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="100,60,0,0" VerticalAlignment="Top" Width="542" Background="#FFD8CCCC">
+            <DockPanel Height="150" LastChildFill="False" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.733,1.056" Margin="45,20,0,0">
+                <DockPanel.Background>
+                    <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
+                </DockPanel.Background>
+            </DockPanel>
+            <TextBlock x:Name="textBlock" Height="71" TextWrapping="Wrap" VerticalAlignment="Top" Margin="-160,209,0,0" Width="472" TextAlignment="Justify"><Run Text="&#x9;"/><Run Text="Hallo! "/></TextBlock>
+        </DockPanel>
+        <DockPanel Height="90" LastChildFill="False" VerticalAlignment="Top" Margin="5,10,547,0">
             <DockPanel.Background>
                 <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
             </DockPanel.Background>
+        </DockPanel>
+        <DockPanel x:Name="start_2" HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="100,60,0,0" VerticalAlignment="Top" Width="542" Background="#FF7C3B3B">
+            <DockPanel Height="90" LastChildFill="False" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.733,1.056">
+                <DockPanel.Background>
+                    <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
+                </DockPanel.Background>
+            </DockPanel>
+        </DockPanel>
+        <DockPanel x:Name="start_3" HorizontalAlignment="Left" Height="359" LastChildFill="False" Margin="100,60,0,0" VerticalAlignment="Top" Width="542" Background="#FFE29797">
+            <DockPanel Height="90" LastChildFill="False" VerticalAlignment="Top" Width="90" RenderTransformOrigin="0.733,1.056">
+                <DockPanel.Background>
+                    <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
+                </DockPanel.Background>
+            </DockPanel>
         </DockPanel>
 
     </Grid>
