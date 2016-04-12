@@ -32,6 +32,9 @@ namespace AChLinks
         public List<string> list;
         public int[] x;
         public string result;
+        public int incoming_number;
+        public int out_number;
+        public string platforma_out;
         SqlConnection mySql;
         public MainWindow()
         {
@@ -79,14 +82,27 @@ namespace AChLinks
             new KeyValuePair<string,int>("GOV", x[5]),
             new KeyValuePair<string,int>("OTHER", x[6]-x[5]-x[4]-x[3]-x[2]-x[1]-x[0]) };
 
-           /* mySql.Open();
-            SqlCommand sql2 = mySql.CreateCommand();
-            sql2.CommandText = "select count(*) from backlinks ";
-            SqlDataReader reader2 = sql2.ExecuteReader();
-            string all_backlinkc = reader2[0].ToString();
-            mySql.Close();
-            anchor.Content = "całość"+ all_backlinkc;*/
+           
+            try
+            {
+                int liczba = 0;
+                mySql.Open();
+                SqlCommand sql2 = mySql.CreateCommand();
+                sql2.CommandText = "select count(distinct Anchor) from Backlinks";
+                SqlDataReader reader2 = sql2.ExecuteReader();
+               while (reader2.Read())
+                {
+                    string anchor_l = reader2[0].ToString();
+                    liczba = int.Parse(anchor_l);
+                }
+                mySql.Close();
+                anchor.Content = "anchorów:" + liczba;
+            }
 
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public void panel_start()
@@ -127,7 +143,6 @@ namespace AChLinks
         private bool autobox_check()
         {
             result = search.Text.ToString();
-            anchor.Content = result;
             if (result == "")
             {
                 this.Not_found_.Visibility = System.Windows.Visibility.Visible;
@@ -154,9 +169,9 @@ namespace AChLinks
 
         private void incoming()
         {
+            incoming_number = 0;
             name_link.Content = "Domena: " + result;
             sub_dom_name_label.Content = "Subdomena: " + sub_Domains();
-            List<string> incoming = new List<string>();
             SqlCommand sql = mySql.CreateCommand();
             mySql.Open();
             sql.Parameters.Add("@Name", SqlDbType.NChar).Value = result;
@@ -166,10 +181,79 @@ namespace AChLinks
             {
                 string temp = String.Format("{0}", reader[0]);
                 listBox_incoming.Items.Add(temp);
+                incoming_number++;
             }
             mySql.Close();
-            
+            incoming_number_label.Content = "Liczba linków przychodzących o danej domenie: " + incoming_number;
+            i_p_l();
+
+
         }
+
+        private void outgoing()
+        {
+            out_number = 0;
+            name_link_outgoing.Content = "Domena: " + result;
+            sub_dom_name_label_outgoing.Content = "Subdomena: " + sub_Domains();
+            SqlCommand sql = mySql.CreateCommand();
+            mySql.Open();
+            sql.Parameters.Add("@Name2", SqlDbType.NChar).Value = result;
+            sql.CommandText = "Execute add_outgoing @Name2";
+            SqlDataReader reader = sql.ExecuteReader();
+            while (reader.Read())
+            {
+                string temp = String.Format("{0}", reader[0]);
+                listBox_outgoing.Items.Add(temp);
+                out_number++;
+            }
+            mySql.Close();
+            outgoing_number_label.Content= "Liczba linków wychodzących o danej domenie: " + out_number;
+            o_p_l();
+
+        }
+
+        private void i_p_l()
+        {
+            string p_inc = "";
+            SqlCommand sql = mySql.CreateCommand();
+            mySql.Open();
+            sql.Parameters.Add("@Name2", SqlDbType.NChar).Value = result;
+            sql.CommandText = "Execute inc_platform @Name2";
+            SqlDataReader reader = sql.ExecuteReader();
+            while (reader.Read())
+            {
+                string temp = String.Format("{0}", reader[0]);
+                p_inc = temp;
+            }
+            mySql.Close();
+            if (p_inc == "")
+            {
+                p_inc = "Brak informacji";
+            }
+            platform_incoming_label.Content = "Platforma: " + p_inc;
+        }
+
+        private void o_p_l()
+        {
+            string p_out = "";
+            SqlCommand sql = mySql.CreateCommand();
+            mySql.Open();
+            sql.Parameters.Add("@Name2", SqlDbType.NChar).Value = result;
+            sql.CommandText = "Execute out_platform @Name2";
+            SqlDataReader reader = sql.ExecuteReader();
+            while (reader.Read())
+            {
+                string temp = String.Format("{0}", reader[0]);
+                p_out = temp;
+            }
+            mySql.Close();
+            if (p_out=="")
+            {
+                p_out = "Brak informacji";
+            }
+            platforma_out_Label.Content = "Platforma: " + p_out;
+        }
+
 
         private string sub_Domains()
         {
@@ -189,13 +273,6 @@ namespace AChLinks
                 return "Brak Subdomeny";
             }
             return temp;
-        }
-
-
-        private void outgoing()
-        {
-            name_link_outgoing.Content = "Domena: " + result;
-            sub_dom_name_label_outgoing.Content = "Subdomena: " + sub_Domains();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

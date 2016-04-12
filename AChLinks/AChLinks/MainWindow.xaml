@@ -50,7 +50,8 @@
                 <Label x:Name="uk" Content="Label" Height="25" VerticalAlignment="Top" Width="100" Margin="-135,165,0,0" FontWeight="ExtraBlack"/>
                 <Label x:Name="dofoll_label" Content="Label" Height="25" VerticalAlignment="Top" Width="110" Margin="-135,210,0,0" FontWeight="ExtraBlack"/>
                 <Label x:Name="nofoll_label" Content="Label" Height="25" VerticalAlignment="Top" Width="110" Margin="-135,235,0,0" FontWeight="ExtraBlack"/>
-                <Label x:Name="anchor" Content="anchor" Height="25" VerticalAlignment="Top" Width="110" Margin="-135,270,0,0" FontWeight="ExtraBlack"/>
+                <Label x:Name="lab" Content="Unikalna liczba" Height="25" VerticalAlignment="Top" Width="110" Margin="-135,270,0,0" FontWeight="ExtraBlack"/>
+                <Label x:Name="anchor" Content="anchor" Height="25" VerticalAlignment="Top" Width="110" Margin="-135,295,0,0" FontWeight="ExtraBlack"/>
             </DockPanel>
             <DVC:Chart Canvas.Top="80" Canvas.Left="10" Name="mcChart" Background="Beige"  Loaded="mcChart_Loaded" Margin="25,-25,0,157" Width="350" RenderTransformOrigin="0.402,0.458" Padding="5,5,5,1" Height="210" AllowDrop="True">
                 <DVC:Chart.Series>
@@ -90,14 +91,14 @@
             		DependentValueBinding="{Binding Value}" Margin="0,0,4,2"/>
             </DVC:Chart>
             <Label x:Name="label6" Content="Przełącz wykresy:" Height="31" VerticalAlignment="Top" Margin="-885,415,0,0" Width="151" Foreground="White" FontSize="16" FontWeight="ExtraBlack" FontStyle="Italic"/>
-            <Label x:Name="LinksType" Content="Typy linków i ich liczba" HorizontalAlignment="Left" Margin="-350,60,0,0" VerticalAlignment="Top" Width="350" Foreground="Black" Background="#FFD97F7F" FontFamily="Segoe WP Black" FontSize="16" Padding="5" BorderThickness="1,0,1,1" BorderBrush="Black" AllowDrop="True"/>
+            <Label x:Name="LinksType" Content="Typy linków i ich liczba" HorizontalAlignment="Left" Margin="-350,60,0,0" VerticalAlignment="Top" Width="350" Foreground="Black" Background="#FFD97F7F" FontFamily="Segoe WP Black" FontSize="16" Padding="5" BorderThickness="1,0,1,1" BorderBrush="Black" AllowDrop="True" Visibility="Hidden"/>
         </DockPanel>
         <DockPanel Height="90" LastChildFill="False" VerticalAlignment="Top" Margin="5,10,15,0">
             <DockPanel.Background>
                 <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
             </DockPanel.Background>
         </DockPanel>
-        <DockPanel x:Name="start_2" HorizontalAlignment="Left" Height="509" LastChildFill="False" Margin="0,60,0,0" VerticalAlignment="Top" Width="542" Background="#FF7C3B3B" Grid.Column="1">
+        <DockPanel x:Name="start_2" HorizontalAlignment="Left" Height="508" LastChildFill="False" Margin="0,59,0,0" VerticalAlignment="Top" Width="542" Background="#FF7C3B3B" Grid.Column="1">
             <Label x:Name="label8" Content="Incoming Links" Height="72" VerticalAlignment="Top" Width="232" FontSize="30" Margin="160,15,0,0" Foreground="White" FontStyle="Italic" FontWeight="Medium"/>
             <DockPanel Height="130" LastChildFill="False" VerticalAlignment="Top" Width="130" Margin="-5,45,0,0">
                 <DockPanel.Background>
@@ -115,13 +116,15 @@
                 </Label.RenderTransform>
             </Label>
             <Label x:Name="sub_dom_name_label" Content="Label" Height="35" VerticalAlignment="Top" Margin="-620,122,0,0" Width="390" FontSize="18" Foreground="White"/>
-            <ListBox x:Name="listBox_incoming" Height="93" VerticalAlignment="Top" Width="500" Margin="-500,400,0,0" FontSize="14" FontWeight="Medium" SelectionChanged="listBox_incoming_SelectionChanged"/>
-            <Label x:Name="label9" Content="Lista linków wychodzących" Height="35" VerticalAlignment="Top" Margin="-500,365,0,0" Width="234" FontSize="18" Foreground="White" FontStyle="Italic" FontWeight="Medium"/>
-            <Grid Height="196" VerticalAlignment="Top" Width="500" Margin="-505,165,0,0" Background="#FFF56969">
-                <Label x:Name="label11" Content="Informacje o linku :" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Height="36" Width="159" FontSize="16" Foreground="White" Grid.IsSharedSizeScope="True" FontWeight="SemiBold"/>
+            <ListBox x:Name="listBox_incoming" Height="160" VerticalAlignment="Top" Width="500" Margin="-500,320,0,0" FontSize="14" FontWeight="Medium" SelectionChanged="listBox_incoming_SelectionChanged"/>
+            <Label x:Name="label9" Content="Lista linków wychodzących" Height="35" VerticalAlignment="Top" Margin="-500,290,0,0" Width="234" FontSize="18" Foreground="White" FontStyle="Italic" FontWeight="Medium"/>
+            <Grid Height="115" VerticalAlignment="Top" Width="500" Margin="-505,165,0,0" Background="#FFF56969">
+                <Label x:Name="label11" Content="Informacje o linku :" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Height="36" Width="159" FontSize="18" Foreground="White" Grid.IsSharedSizeScope="True" FontWeight="SemiBold"/>
+                <Label x:Name="incoming_number_label" Content="Liczba linków wychodzących o danej domenie: " HorizontalAlignment="Left" Margin="28,36,0,0" VerticalAlignment="Top" Width="462" Height="32" Foreground="White" FontSize="16"/>
+                <Label x:Name="platform_incoming_label" Content="Liczba linków wychodzących o danej domenie: " HorizontalAlignment="Left" Margin="28,68,0,0" VerticalAlignment="Top" Width="462" Height="32" Foreground="White" FontSize="16"/>
             </Grid>
         </DockPanel>
-        <DockPanel x:Name="start_3" HorizontalAlignment="Left" Height="513" LastChildFill="False" Margin="0,59,0,-3" VerticalAlignment="Top" Width="542" Background="#FFE29797" Grid.Column="1">
+        <DockPanel x:Name="start_3" HorizontalAlignment="Left" Height="512" LastChildFill="False" Margin="0,59,0,-2" VerticalAlignment="Top" Width="542" Background="#FFE29797" Grid.Column="1">
             <Label x:Name="label7" Content="Outgoing Links" Height="62" VerticalAlignment="Top" Width="227" Margin="160,15,0,0" FontSize="30" Foreground="White" FontStyle="Italic" FontWeight="Medium"/>
             <DockPanel Height="130" LastChildFill="False" VerticalAlignment="Top" Width="130" Margin="-5,45,0,0">
                 <DockPanel.Background>
@@ -139,13 +142,15 @@
                 </Label.RenderTransform>
             </Label>
             <Label x:Name="sub_dom_name_label_outgoing" Content="Label" Height="35" VerticalAlignment="Top" Margin="-620,122,0,0" Width="390" FontSize="18" Foreground="White"/>
-            <Label x:Name="label9_Copy" Content="Lista linków wychodzących" Height="35" VerticalAlignment="Top" Margin="-500,365,0,0" Width="234" FontSize="18" Foreground="White" FontStyle="Italic" FontWeight="Medium"/>
-            <ListBox x:Name="listBox_outgoing" Height="80" VerticalAlignment="Top" Width="506" Margin="-500,400,0,0" FontSize="14" FontWeight="Medium" SelectionChanged="listBox_outgoing_SelectionChanged"/>
-            <Grid Height="196" VerticalAlignment="Top" Width="500" Margin="-495,165,0,0" Background="#FFF56969">
-                <Label x:Name="label10" Content="Informacje o linku :" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Height="36" Width="159" FontSize="16" Foreground="White" Grid.IsSharedSizeScope="True" FontWeight="SemiBold"/>
+            <Label x:Name="label9_Copy" Content="Lista linków wychodzących" Height="35" VerticalAlignment="Top" Margin="-500,290,0,0" Width="234" FontSize="18" Foreground="White" FontStyle="Italic" FontWeight="Medium"/>
+            <ListBox x:Name="listBox_outgoing" Height="160" VerticalAlignment="Top" Width="506" Margin="-500,320,0,0" FontSize="14" FontWeight="Medium" SelectionChanged="listBox_outgoing_SelectionChanged"/>
+            <Grid Height="115" VerticalAlignment="Top" Width="500" Margin="-495,165,0,0" Background="#FFF56969">
+                <Label x:Name="label10" Content="Informacje o linku :" HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Top" Height="36" Width="159" FontSize="18" Foreground="White" Grid.IsSharedSizeScope="True" FontWeight="SemiBold"/>
+                <Label x:Name="outgoing_number_label" Content="Liczba linków wychodzących o danej domenie: " HorizontalAlignment="Left" Margin="28,36,0,0" VerticalAlignment="Top" Width="359" Height="32" Foreground="White" FontSize="16"/>
+                <Label x:Name="platforma_out_Label" Content="Label" HorizontalAlignment="Left" Margin="28,73,0,0" VerticalAlignment="Top" Width="359" FontSize="16" Foreground="White"/>
             </Grid>
         </DockPanel>
-        <DockPanel x:Name="start_4" HorizontalAlignment="Left" Height="512" LastChildFill="False" Margin="0,59,0,-2" VerticalAlignment="Top" Width="542" Background="#FF090D5F" Grid.Column="1">
+        <DockPanel x:Name="start_4" HorizontalAlignment="Left" Height="512" LastChildFill="False" Margin="0,60,0,-3" VerticalAlignment="Top" Width="542" Background="#FF090D5F" Grid.Column="1">
             <DockPanel Height="200" LastChildFill="False" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.733,1.056" Margin="45,100,0,0">
                 <DockPanel.Background>
                     <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\pdf.png"/>
@@ -158,8 +163,8 @@
             <Button x:Name="button7" Content="Eksportuj" Height="50" VerticalAlignment="Top" Width="100" Margin="-130,328,0,0" Click="button7_Click" Background="{x:Null}" BorderThickness="3" BorderBrush="White" FontSize="18" Foreground="White"/>
             <Button x:Name="button8" Content="Eksportuj" Height="50" VerticalAlignment="Top" Width="100" Foreground="White" Margin="-130,400,0,0" Background="{x:Null}" BorderBrush="White" BorderThickness="3" FontSize="18" Click="button8_Click"/>
         </DockPanel>
-        <DockPanel x:Name="start_5" HorizontalAlignment="Left" Height="510" LastChildFill="False" Margin="0,62,0,-3" VerticalAlignment="Top" Width="542" Background="#FF264618" MaxHeight="510" MinHeight="510" Grid.Column="1">
-            <DockPanel Height="220" LastChildFill="False" Width="220" RenderTransformOrigin="0.733,1.056" Margin="20,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Right">
+        <DockPanel x:Name="start_5" HorizontalAlignment="Left" Height="510" LastChildFill="False" Margin="0,59,0,0" VerticalAlignment="Top" Width="542" Background="#FF264618" MaxHeight="510" MinHeight="510" Grid.Column="1">
+            <DockPanel Height="220" LastChildFill="False" Width="220" RenderTransformOrigin="0.733,1.056" Margin="20,0,0,255" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                 <DockPanel.Background>
                     <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
                 </DockPanel.Background>
@@ -169,7 +174,7 @@
             <Label x:Name="label_Copy" Content="Ogólne informacje o programie" Height="60" VerticalAlignment="Top" Width="410" Margin="-500,0,0,0" FontSize="28" FontWeight="Medium" FontStyle="Italic" Foreground="White"/>
             <TextBlock x:Name="textBlock2_Copy1" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Margin="-265,480,0,0" Width="300" TextAlignment="Justify" FontSize="14" LineHeight="25" FontWeight="Light" FontStyle="Oblique"><Run Foreground="White" Text="Autorzy: Grzegorz Łysio, Przemysław Herman"/></TextBlock>
         </DockPanel>
-        <DockPanel x:Name="Not_found_" HorizontalAlignment="Left" Height="511" LastChildFill="False" Margin="0,60,0,-2" VerticalAlignment="Top" Width="542" Background="#FF008FA6" Grid.Column="1">
+        <DockPanel x:Name="Not_found_" HorizontalAlignment="Left" Height="511" LastChildFill="False" Margin="0,59,0,-1" VerticalAlignment="Top" Width="542" Background="#FF008FA6" Grid.Column="1">
             <DockPanel Height="200" LastChildFill="False" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.733,1.056">
                 <DockPanel.Background>
                     <ImageBrush TileMode="FlipX" ImageSource="C:\Users\Grzesiek\Desktop\logo-pz.png"/>
